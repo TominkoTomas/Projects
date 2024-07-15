@@ -1,0 +1,12 @@
+- Spustenie projektu
+    - potreba Flasku (pip install Flask)
+    - nasledne do terminalu napiste command: flask run --port=PORT (PORT = číslo väčšie ako 1024 )
+    - vygeneruje sa vám link, skopírujte a následne prekopírujte do vášho prehliadača, alebo počas držania CTRL naňho kliknite 
+
+- Upravené dáta uschované v project/data
+
+- Štýl stránky nájdete v project/static/styles.css
+
+- Template stránok nájdete v project/templates/..
+
+- Kód k správaniu flask aplikácie nájdete v project/app.py
