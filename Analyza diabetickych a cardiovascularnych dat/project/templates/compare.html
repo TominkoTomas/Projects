@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Algorithm Comparison</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles.css') }}">
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript">
+        google.charts.load("current", {packages:["corechart"]});
+        google.charts.setOnLoadCallback(drawChart);
+
+        function drawChart() {
+            var data = google.visualization.arrayToDataTable([
+                ['Metric', '{{ comparison_data.algorithm_1 }}', '{{ comparison_data.algorithm_2 }}'],
+                ['Accuracy', {{ comparison_data.performance_1['accuracy'] * 100 }}, {{ comparison_data.performance_2['accuracy'] * 100 }}],
+                ['Precision', {{ comparison_data.performance_1['precision'] * 100 }}, {{ comparison_data.performance_2['precision'] * 100 }}],
+                ['Recall', {{ comparison_data.performance_1['recall'] * 100 }}, {{ comparison_data.performance_2['recall'] * 100 }}],
+                ['F1 Score', {{ comparison_data.performance_1['f1_score'] * 100 }}, {{ comparison_data.performance_2['f1_score'] * 100 }}],
+                ['ROC AUC', {{ comparison_data.performance_1['roc_auc'] * 100 }}, {{ comparison_data.performance_2['roc_auc'] * 100 }}]
+            ]);
+
+            var options = {
+                hAxis: {
+                    title: 'Metrics',
+                    minValue: 0
+                },
+                vAxis: {
+                    title: 'Performance (%)',
+                    minValue: 0,
+                    maxValue: 100
+                },
+                legend: { position: 'top', maxLines: 2 },
+                bar: { groupWidth: '75%' },
+                isStacked: true
+            };
+
+            var chart = new google.visualization.ColumnChart(document.getElementById('barchart_values'));
+            chart.draw(data, options);
+        }
+    </script>
+</head>
+<body>
+    <div class="container">
+        <h1>Comparison of {{ comparison_data.algorithm_1 }} and {{ comparison_data.algorithm_2 }}</h1>
+        <p class="description">This chart illustrates the performance comparison between {{ comparison_data.algorithm_1 }} and {{ comparison_data.algorithm_2 }} algorithms on the selected dataset.</p>
+        <div class="chart-container">
+            <div id="barchart_values" style="width: 100%; height: 500px;"></div>
+        </div>
+        <a href="{{ url_for('index') }}" class="back-link">Back to datasets</a>
+    </div>
+</body>
+</html>
