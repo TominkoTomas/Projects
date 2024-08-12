@@ -2,7 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ae529370-d964-40ff-8482-98099949486f" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/sprava.docx" beforeDir="false" afterPath="$PROJECT_DIR$/sprava.docx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Zemetrasenia.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/Zemetrasenia.ipynb" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
